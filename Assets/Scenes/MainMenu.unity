@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 255081811}
   - component: {fileID: 255081810}
   m_Layer: 5
-  m_Name: ResolutionText
+  m_Name: QualityText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -893,7 +893,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Resolution
+  m_text: Quality
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4adab110b9e8c4f4b86d38f84a2e0b09, type: 2}
   m_sharedMaterial: {fileID: -292453048568300126, guid: 4adab110b9e8c4f4b86d38f84a2e0b09,
@@ -963,7 +963,7 @@ MonoBehaviour:
   m_margin: {x: -0.000026739563, y: 0, z: 3.076706, w: 0}
   m_textInfo:
     textComponent: {fileID: 255081810}
-    characterCount: 10
+    characterCount: 7
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -3478,10 +3478,10 @@ RectTransform:
   m_Father: {fileID: 597184138}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -195.00006, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: -1430, y: -980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1155559743
 MonoBehaviour:
@@ -3495,7 +3495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d7316ae8ff5e6469bf34c9f5990785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ResolutionDropdown: {fileID: 1878673874}
+  QualityDropdown: {fileID: 1878673874}
 --- !u!1 &1185714448
 GameObject:
   m_ObjectHideFlags: 0
@@ -4505,7 +4505,7 @@ GameObject:
   - component: {fileID: 1878673875}
   - component: {fileID: 1878673874}
   m_Layer: 5
-  m_Name: ResolutionDropdown
+  m_Name: QualityDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4581,15 +4581,19 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: 1080 x 720
+    - m_Text: Very High
       m_Image: {fileID: 0}
-    - m_Text: 1920 x 1080
+    - m_Text: High
+      m_Image: {fileID: 0}
+    - m_Text: Normal
+      m_Image: {fileID: 0}
+    - m_Text: Low
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1155559743}
-        m_MethodName: SetResolution
+        m_MethodName: SetQualityLevel
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4777,7 +4781,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1080 x 720
+  m_Text: Very High
 --- !u!222 &1935538309
 CanvasRenderer:
   m_ObjectHideFlags: 0
