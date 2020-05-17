@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class OptionsManager : MonoBehaviour
+public class OptionsMenu : MonoBehaviour
 {
 
     public Dropdown QualityDropdown;
