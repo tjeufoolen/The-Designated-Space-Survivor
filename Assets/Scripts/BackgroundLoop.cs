@@ -1,14 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BackgroundLoop : MonoBehaviour
 {
+    /**
+     * Code from https://www.youtube.com/watch?v=Mp6BWCMJZH4&t=32s
+     */
+
     public GameObject[] levels;
     private Camera mainCamera;
     private Vector2 screenBounds;
     public float choke;
     public float scrollSpeed;
+
+    private Vector3 lastScreenPosition;
 
     void Start()
     {
@@ -18,7 +25,9 @@ public class BackgroundLoop : MonoBehaviour
         {
             loadChildObjects(obj);
         }
+        lastScreenPosition = transform.position;
     }
+
     void loadChildObjects(GameObject obj)
     {
         float objectWidth = obj.GetComponent<SpriteRenderer>().bounds.size.x - choke;
@@ -34,6 +43,7 @@ public class BackgroundLoop : MonoBehaviour
         Destroy(clone);
         Destroy(obj.GetComponent<SpriteRenderer>());
     }
+
     void repositionChildObjects(GameObject obj)
     {
         Transform[] children = obj.GetComponentsInChildren<Transform>();
@@ -54,20 +64,24 @@ public class BackgroundLoop : MonoBehaviour
             }
         }
     }
+
     void Update()
     {
-
         Vector3 velocity = Vector3.zero;
         Vector3 desiredPosition = transform.position + new Vector3(scrollSpeed, 0, 0);
         Vector3 smoothPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, 0.3f);
         transform.position = smoothPosition;
-
     }
+
     void LateUpdate()
     {
         foreach (GameObject obj in levels)
         {
             repositionChildObjects(obj);
+            float parallaxSpeed = 1 - Mathf.Abs(transform.position.z / obj.transform.position.z);
+            float difference = transform.position.x - lastScreenPosition.x;
+            obj.transform.Translate(Vector3.right * difference * parallaxSpeed);
         }
+        lastScreenPosition = transform.position;
     }
 }
