@@ -10,23 +10,9 @@ public class Game : MonoBehaviour
     public Camera Camera;
     public Text TraveledDistanceText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         updateDistanceTraveled();
-
-        //TEMP
-        if (Input.GetButtonDown("Jump"))
-        {
-            GameOver.SetActive(!GameOver.activeSelf);
-        }
-        //END TEMP
     }
 
     private void updateDistanceTraveled()
