@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 public class Comet : MonoBehaviour, IPooledObject
@@ -8,7 +9,7 @@ public class Comet : MonoBehaviour, IPooledObject
 
     public bool IsVisible(Camera camera)
     {
-        return transform.position.x >= CameraExtensions.BoundsMin(camera).x;
+        return transform.position.x >= CameraExtensions.BoundsMin(camera).x - 2;
     }
 
     void OnTriggerEnter2D(Collider2D col)
