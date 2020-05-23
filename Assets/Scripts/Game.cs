@@ -10,6 +10,8 @@ public class Game : MonoBehaviour
     public Camera Camera;
     public Text TraveledDistanceText;
 
+    private int distance = 0;
+
     void Update()
     {
         updateDistanceTraveled();
@@ -17,7 +19,16 @@ public class Game : MonoBehaviour
 
     private void updateDistanceTraveled()
     {
-        int distance = (int) Mathf.Ceil(Mathf.Abs(Camera.transform.position.x));
-        TraveledDistanceText.text = distance.ToString();
+        if (!GameOver.activeSelf)
+        {
+            distance = (int)Mathf.Ceil(Mathf.Abs(Camera.transform.position.x));
+            TraveledDistanceText.text = distance.ToString();
+        }
+    }
+
+    public void Die()
+    {
+        GameOver.SetActive(true);
+        ((GameOver) GameOver.GetComponent(typeof(GameOver))).UpdateScoreText(distance);
     }
 }

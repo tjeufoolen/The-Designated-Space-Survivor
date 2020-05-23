@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
-    public void PlayAgain()
+    public void UpdateScoreText(int score)
     {
-        Debug.Log("Play Again!");
+        TextMeshProUGUI scoreText =  GameObject.FindWithTag("ScoreText").GetComponent<TextMeshProUGUI>();
+        scoreText.text = score.ToString();
     }
 
     public void GoToMainMenu()
