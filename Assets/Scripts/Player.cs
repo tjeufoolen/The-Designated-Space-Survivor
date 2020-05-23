@@ -41,6 +41,5 @@ public class Player : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         health -= damage;
-        Debug.Log(health);
     }
 }
