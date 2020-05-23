@@ -8,13 +8,17 @@ public class Player : MonoBehaviour
     public float tapForce = 10;
     public Vector3 startPos;
     public Game game;
+    public HealthBar healthBar;
     
     Rigidbody2D rb;
 
-    private int health = 100;
+    public int maxHealth = 100;
+    public int health = 100;
 
     void Start()
     {
+        health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -41,5 +45,6 @@ public class Player : MonoBehaviour
     public void ApplyDamage(int damage)
     {
         health -= damage;
+        healthBar.SetHealth(health);
     }
 }
