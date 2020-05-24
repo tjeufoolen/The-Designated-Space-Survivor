@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem smoke = null;
     [SerializeField] private float tapForce = 10;
     [SerializeField] private Game game = null;
     [SerializeField] private HealthBar healthBar = null;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
         if (Input.GetButton("Jump"))
         {
             rb.AddForce(Vector2.up * tapForce, ForceMode2D.Force);
+            createSmoke();
         }
     }
 
@@ -45,5 +47,10 @@ public class Player : MonoBehaviour
     {
         health -= damage;
         healthBar.SetHealth(health);
+    }
+
+    private void createSmoke()
+    {
+        smoke.Play();
     }
 }
