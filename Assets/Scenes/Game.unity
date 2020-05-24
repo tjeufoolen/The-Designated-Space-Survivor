@@ -223,6 +223,9 @@ MonoBehaviour:
   - {fileID: 850566611}
   choke: 0.25
   scrollSpeed: 15
+  maxScrollSpeed: 30
+  scrollSpeedIncreaseSeconds: 3
+  scrollSpeedIncreaseAmount: 1
 --- !u!1 &102378061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,7 +2743,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tapForce: 10
-  startPos: {x: 0, y: 0, z: 0}
   game: {fileID: 372319989}
   healthBar: {fileID: 1868696536}
   maxHealth: 100
