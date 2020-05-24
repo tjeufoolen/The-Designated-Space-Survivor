@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CometSpawner : MonoBehaviour
 {
-    ObjectPooler objectPooler;
-    public Camera cam;
-    public GameObject gameOver;
+    private ObjectPooler objectPooler;
+    [SerializeField] private Camera cam = null;
+    [SerializeField] private GameObject gameOver = null;
 
     void Start()
     {

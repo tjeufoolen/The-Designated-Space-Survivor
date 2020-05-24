@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour, IPooledObject
 {
-    public int amountOfDamage = 20;
+    [SerializeField] private int amountOfDamage = 20;
 
     public bool IsVisible(Camera camera)
     {

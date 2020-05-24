@@ -5,15 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
-    public float tapForce = 10;
-    public Vector3 startPos;
-    public Game game;
-    public HealthBar healthBar;
+    [SerializeField] private float tapForce = 10;
+    [SerializeField] private Game game = null;
+    [SerializeField] private HealthBar healthBar = null;
     
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
 
-    public int maxHealth = 100;
-    public int health = 100;
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int health = 100;
 
     void Start()
     {

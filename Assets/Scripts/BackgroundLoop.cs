@@ -10,11 +10,11 @@ public class BackgroundLoop : MonoBehaviour
      * https://www.youtube.com/watch?v=Mp6BWCMJZH4&t=32s
      */
 
-    public GameObject[] levels;
+    [SerializeField] private GameObject[] levels = new GameObject[0];
     private Camera mainCamera;
     private Vector2 screenBounds;
-    public float choke;
-    public float scrollSpeed;
+    [SerializeField] private float choke = 0.25f;
+    [SerializeField] private float scrollSpeed = 15f;
 
     private Vector3 lastScreenPosition;
 

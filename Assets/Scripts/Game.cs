@@ -6,11 +6,16 @@ using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
-    public GameObject GameOverObject;
-    public Camera Camera;
-    public Text TraveledDistanceText;
+    [SerializeField] private GameObject GameOverObject = null;
+    [SerializeField] private Camera Camera = null;
+    [SerializeField] private Text TraveledDistanceText = null;
 
     private int distance = 0;
+
+    void Start()
+    {
+        TraveledDistanceText.text = "0";
+    }
 
     void Update()
     {

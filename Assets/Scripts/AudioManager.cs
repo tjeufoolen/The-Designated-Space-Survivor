@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
      * https://www.youtube.com/watch?v=6OT43pvUyfY
      */
 
-    public Sound[] sounds;
+    [SerializeField] private Sound[] sounds = null;
 
     public static AudioManager instance;
 

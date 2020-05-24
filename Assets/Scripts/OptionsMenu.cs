@@ -8,10 +8,10 @@ using UnityEngine.UI;
 public class OptionsMenu : MonoBehaviour
 {
 
-    public Dropdown QualityDropdown;
-    public Toggle FullscreenToggle;
-    public GameObject MusicSliderGameObject;
-    public GameObject EffectsSliderGameObject;
+    [SerializeField] private Dropdown QualityDropdown = null;
+    [SerializeField] private Toggle FullscreenToggle = null;
+    [SerializeField] private GameObject MusicSliderGameObject = null;
+    [SerializeField] private GameObject EffectsSliderGameObject = null;
 
     void Awake()
     {

@@ -29,9 +29,9 @@ public class ObjectPooler : MonoBehaviour
     }
     #endregion
 
-    public List<Pool> pools;
-    public Camera cam;
-    public Dictionary<string, Queue<GameObject>> poolDictionary;
+    [SerializeField] private List<Pool> pools = new List<Pool>();
+    [SerializeField] private Camera cam = null;
+    [SerializeField] private Dictionary<string, Queue<GameObject>> poolDictionary = new Dictionary<string, Queue<GameObject>>();
     private int spreadSize = 4;
 
     void Start()

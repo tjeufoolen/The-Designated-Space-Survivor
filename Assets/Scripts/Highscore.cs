@@ -8,8 +8,8 @@ using UnityEngine.UI;
 
 public class Highscore : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI Header;
-    [SerializeField] private TextMeshProUGUI Value;
+    [SerializeField] private TextMeshProUGUI Header = null;
+    [SerializeField] private TextMeshProUGUI Value = null;
 
     void Start()
     {
@@ -21,6 +21,7 @@ public class Highscore : MonoBehaviour
             Value.text = "";
         }  else
         {
+            Header.text = "Highscore:";
             Value.text = highscore.ToString();
         }
     }

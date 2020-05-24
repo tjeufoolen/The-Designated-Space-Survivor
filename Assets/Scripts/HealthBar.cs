@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour
      * https://www.youtube.com/watch?v=BLfNP4Sc_iA&t=633s
      */
 
-    public Slider slider;
+    [SerializeField] private Slider slider = null;
 
     public void SetMaxHealth(int health)
     {
