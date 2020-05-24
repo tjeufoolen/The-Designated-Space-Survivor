@@ -7498,7 +7498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 925693564}
-  tapForce: 10
+  tapForce: 20
   game: {fileID: 372319989}
   healthBar: {fileID: 1868696536}
   maxHealth: 100
