@@ -29,6 +29,7 @@ public class Game : MonoBehaviour
     public void Die()
     {
         GameOverObject.SetActive(true);
+        PlayerPrefs.SetInt("Highscore", distance);
         ((GameOver)GameOverObject.GetComponent(typeof(GameOver))).UpdateScoreText(distance);
     }
 }
