@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 
-public class Comet : MonoBehaviour, IPooledObject
+public class Projectile : MonoBehaviour, IPooledObject
 {
-    private int amountOfDamage = 20;
+    public int amountOfDamage = 20;
 
     public bool IsVisible(Camera camera)
     {
@@ -14,9 +14,12 @@ public class Comet : MonoBehaviour, IPooledObject
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        GameObject obj = GameObject.FindGameObjectWithTag("Player");
-        Player script = (Player) obj.GetComponent(typeof(Player));
+        FindObjectOfType<AudioManager>().Play("Hit");
+
+        GameObject obj = col.gameObject;
+        Player script = (Player)obj.GetComponent(typeof(Player));
         script.ApplyDamage(amountOfDamage);
+
         gameObject.SetActive(false);
     }
 }

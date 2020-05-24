@@ -7,6 +7,11 @@ using UnityEngine.UIElements;
 
 public class ObjectPooler : MonoBehaviour
 {
+    /**
+     * Code based of;
+     * https://www.youtube.com/watch?v=tdSmKaJvCoA&t=936s
+     */
+
     [System.Serializable]
     public class Pool
     {

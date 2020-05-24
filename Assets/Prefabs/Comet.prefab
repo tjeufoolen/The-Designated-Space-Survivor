@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3917873979099642328}
   m_Layer: 0
   m_Name: Comet
-  m_TagString: comets
+  m_TagString: Comets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512dbd54e8aa55f4a8dc0affa7f764aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  amountOfDamage: 20
 --- !u!50 &-436704984971608872
 Rigidbody2D:
   serializedVersion: 4

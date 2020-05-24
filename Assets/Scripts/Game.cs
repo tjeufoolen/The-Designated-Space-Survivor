@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
-    public GameObject GameOver;
+    public GameObject GameOverObject;
     public Camera Camera;
     public Text TraveledDistanceText;
 
@@ -19,7 +19,7 @@ public class Game : MonoBehaviour
 
     private void updateDistanceTraveled()
     {
-        if (!GameOver.activeSelf)
+        if (!GameOverObject.activeSelf)
         {
             distance = (int)Mathf.Ceil(Mathf.Abs(Camera.transform.position.x));
             TraveledDistanceText.text = distance.ToString();
@@ -28,7 +28,7 @@ public class Game : MonoBehaviour
 
     public void Die()
     {
-        GameOver.SetActive(true);
-        ((GameOver) GameOver.GetComponent(typeof(GameOver))).UpdateScoreText(distance);
+        GameOverObject.SetActive(true);
+        ((GameOver)GameOverObject.GetComponent(typeof(GameOver))).UpdateScoreText(distance);
     }
 }

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public static class CameraExtensions
 {
+    /**
+     * Code from;
+     * https://answers.unity.com/questions/501893/calculating-2d-camera-bounds.html
+     */
+
     //******Orthographic Camera Only******//
 
     public static Vector2 BoundsMin(this Camera camera)

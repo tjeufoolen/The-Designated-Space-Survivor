@@ -8,7 +8,7 @@ public class CometSpawner : MonoBehaviour
     public Camera cam;
     public GameObject gameOver;
 
-    private void Start()
+    void Start()
     {
         objectPooler = ObjectPooler.Instance;
     }
@@ -21,7 +21,7 @@ public class CometSpawner : MonoBehaviour
             position.y = Random.Range(CameraExtensions.BoundsMin(cam).y, CameraExtensions.BoundsMax(cam).y);
             position.x = CameraExtensions.BoundsMax(cam).x;
 
-            objectPooler.SpawnFromPool("comets", position, Quaternion.identity);
+            objectPooler.SpawnFromPool("Comets", position, Quaternion.identity);
         }
     }
 }

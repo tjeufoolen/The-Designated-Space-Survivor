@@ -6,7 +6,8 @@ using UnityEngine;
 public class BackgroundLoop : MonoBehaviour
 {
     /**
-     * Code from https://www.youtube.com/watch?v=Mp6BWCMJZH4&t=32s
+     * Code from;
+     * https://www.youtube.com/watch?v=Mp6BWCMJZH4&t=32s
      */
 
     public GameObject[] levels;

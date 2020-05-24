@@ -10,6 +10,16 @@ public class OptionsMenu : MonoBehaviour
 
     public Dropdown QualityDropdown;
     public Toggle FullscreenToggle;
+    public GameObject MusicSliderGameObject;
+    public GameObject EffectsSliderGameObject;
+
+    void Awake()
+    {
+        AudioManager audioManager = FindObjectOfType<AudioManager>();
+
+        MusicSliderGameObject.GetComponent<Slider>().value = audioManager.GetSoundVolume("MainTheme");
+        EffectsSliderGameObject.GetComponent<Slider>().value = audioManager.GetSoundVolume("Hit");
+    }
 
     void Start()
     {
@@ -25,13 +35,27 @@ public class OptionsMenu : MonoBehaviour
         #endregion Fullscreen
     }
 
+    public void SetQualityLevel(int index)
+    {
+        QualitySettings.SetQualityLevel(index);
+    }
+
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
     }
 
-    public void SetQualityLevel(int index)
+    public void SetMusicVolume(float volume)
     {
-        QualitySettings.SetQualityLevel(index);
+        FindObjectOfType<AudioManager>().SetSoundVolume("MainTheme", volume);
+    }
+
+    public void SetEffectsVolume(float volume)
+    {
+        string[] effects = { "Hit" };
+        Array.ForEach(effects, effect =>
+        {
+            FindObjectOfType<AudioManager>().SetSoundVolume(effect, volume);
+        });
     }
 }

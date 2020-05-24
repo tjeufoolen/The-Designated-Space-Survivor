@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - comets
   - GameOver
   - ScoreText
+  - Comets
   layers:
   - Default
   - TransparentFX
