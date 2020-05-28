@@ -6,32 +6,40 @@ using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
-    public GameObject GameOver;
-    public Camera Camera;
-    public Text TraveledDistanceText;
+    [SerializeField] private GameObject GameOverObject = null;
+    [SerializeField] private Camera Camera = null;
+    [SerializeField] private Text TraveledDistanceText = null;
 
-    // Start is called before the first frame update
+    private int distance = 0;
+
     void Start()
     {
-        
+        TraveledDistanceText.text = "0";
     }
 
-    // Update is called once per frame
     void Update()
     {
         updateDistanceTraveled();
-
-        //TEMP
-        if (Input.GetButtonDown("Jump"))
-        {
-            GameOver.SetActive(!GameOver.activeSelf);
-        }
-        //END TEMP
     }
 
     private void updateDistanceTraveled()
     {
-        int distance = (int) Mathf.Ceil(Mathf.Abs(Camera.transform.position.x));
-        TraveledDistanceText.text = distance.ToString();
+        if (!GameOverObject.activeSelf)
+        {
+            distance = (int)Mathf.Ceil(Mathf.Abs(Camera.transform.position.x));
+            TraveledDistanceText.text = distance.ToString();
+        }
+    }
+
+    public void Die()
+    {
+        GameOverObject.SetActive(true);
+        ((GameOver)GameOverObject.GetComponent(typeof(GameOver))).UpdateScoreText(distance);
+
+        // Update highscore if new highscore
+        if (PlayerPrefs.GetInt("Highscore") < distance)
+        {
+            PlayerPrefs.SetInt("Highscore", distance);
+        }
     }
 }

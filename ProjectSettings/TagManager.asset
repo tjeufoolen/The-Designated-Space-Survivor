@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - GameOver
+  - ScoreText
+  - Comets
+  - Highscore
   layers:
   - Default
   - TransparentFX
@@ -44,6 +48,12 @@ TagManager:
   - name: Background
     uniqueID: 2398895209
     locked: 0
+  - name: Projectiles
+    uniqueID: 396504883
+    locked: 0
   - name: Player
     uniqueID: 2015201761
+    locked: 0
+  - name: UI
+    uniqueID: 3375621549
     locked: 0

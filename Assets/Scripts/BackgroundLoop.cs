@@ -6,19 +6,31 @@ using UnityEngine;
 public class BackgroundLoop : MonoBehaviour
 {
     /**
-     * Code from https://www.youtube.com/watch?v=Mp6BWCMJZH4&t=32s
+     * Code from;
+     * https://www.youtube.com/watch?v=Mp6BWCMJZH4&t=32s
      */
 
-    public GameObject[] levels;
+    [SerializeField] private GameObject[] levels = new GameObject[0];
     private Camera mainCamera;
     private Vector2 screenBounds;
-    public float choke;
-    public float scrollSpeed;
+    [SerializeField] private float choke = 0.25f;
+
+    [Space]
+    [Header("ScrollSpeed")]
+    [SerializeField] private float scrollSpeed = 15f;
+    [SerializeField] private float maxScrollSpeed = 30f;
+    [Tooltip("The amount of seconds in which the scrollspeed should be increased")]
+    [SerializeField] private float scrollSpeedIncreaseSeconds = 3;
+    [Tooltip("The amount in which the scrollspeed should be increased")]
+    [SerializeField] private float scrollSpeedIncreaseAmount = 1;
 
     private Vector3 lastScreenPosition;
+    private long startTime;
 
     void Start()
     {
+        InvokeRepeating("increaseScrollSpeed", 0, scrollSpeedIncreaseSeconds);
+
         mainCamera = gameObject.GetComponent<Camera>();
         screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         foreach (GameObject obj in levels)
@@ -71,6 +83,15 @@ public class BackgroundLoop : MonoBehaviour
         Vector3 desiredPosition = transform.position + new Vector3(scrollSpeed, 0, 0);
         Vector3 smoothPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, 0.3f);
         transform.position = smoothPosition;
+    }
+
+
+    private void increaseScrollSpeed()
+    {
+        if (scrollSpeed < maxScrollSpeed)
+        {
+            scrollSpeed += scrollSpeedIncreaseAmount;
+        }
     }
 
     void LateUpdate()
