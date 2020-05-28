@@ -13,16 +13,14 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private GameObject MusicSliderGameObject = null;
     [SerializeField] private GameObject EffectsSliderGameObject = null;
 
-    void Awake()
-    {
-        AudioManager audioManager = FindObjectOfType<AudioManager>();
-
-        MusicSliderGameObject.GetComponent<Slider>().value = audioManager.GetSoundVolume("MainTheme");
-        EffectsSliderGameObject.GetComponent<Slider>().value = audioManager.GetSoundVolume("Hit");
-    }
+    private AudioManager audioManager;
 
     void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
+        MusicSliderGameObject.GetComponent<Slider>().value = audioManager.GetSoundVolume("MainTheme");
+        EffectsSliderGameObject.GetComponent<Slider>().value = audioManager.GetSoundVolume("Hit");
+
         #region Quality
         QualityDropdown.ClearOptions();
         QualityDropdown.AddOptions(QualitySettings.names.ToList());
@@ -47,7 +45,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetMusicVolume(float volume)
     {
-        FindObjectOfType<AudioManager>().SetSoundVolume("MainTheme", volume);
+        audioManager.SetSoundVolume("MainTheme", volume);
     }
 
     public void SetEffectsVolume(float volume)
@@ -55,7 +53,7 @@ public class OptionsMenu : MonoBehaviour
         string[] effects = { "Hit" };
         Array.ForEach(effects, effect =>
         {
-            FindObjectOfType<AudioManager>().SetSoundVolume(effect, volume);
+            audioManager.SetSoundVolume(effect, volume);
         });
     }
 }

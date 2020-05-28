@@ -56,10 +56,7 @@ public class AudioManager : MonoBehaviour
     public void SetSoundVolume(string name, float volume)
     {
         Sound s = getSoundByName(name);
-        if (s != null)
-        {
-            s.source.volume = volume;
-        }
+        if (s != null) s.source.volume = volume;
     }
 
     public float GetSoundVolume(string name)
