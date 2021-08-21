@@ -1,5 +1,5 @@
 # The-Designated-Space-Survivor
-First ever unity game made for the avans unity course from blok 8
+The first ever Unity game I have written.
 
 
 ## Authors
